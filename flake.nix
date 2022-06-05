@@ -27,8 +27,6 @@
       config.allowUnfree = true;
       overlays = [];
     };
-
-    system = "x86_64-linux";
   in {
     homeManagerConfigurations = {
       dark = user.mkHMUser {
@@ -41,6 +39,7 @@
 
     nixosConfigurations = {
       vm = host.mkHost {
+        system = "x86_64-linux";
         name = "vm";
         NICs = [ "eth0" ];
         kernelPackage = pkgs.linuxPackages;

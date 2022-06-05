@@ -1,7 +1,7 @@
 { system, pkgs, home-manager, lib, user, ... }:
 with builtins;
 {
-  mkHost = { name, NICs, initrdMods, kernelMods, kernelParams, kernelPackage,
+  mkHost = { system, name, NICs, initrdMods, kernelMods, kernelParams, kernelPackage,
     systemConfig, cpuCores, users,  wifi ? [], gpuTempSensor ? null, cpuTempSensor ? null
   }:
   let
