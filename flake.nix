@@ -14,6 +14,8 @@
   let
     inherit (nixpkgs) lib;
 
+    system = "x86_64-linux"; # default
+
     util = import ./lib {
       inherit system pkgs home-manager lib;
       overlays = (pkgs.overlays);
