@@ -50,7 +50,7 @@
         kernelParams = [];
         systemConfig = {
           efi.enable = true;
-          hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+          hardware.cpu.intel.updateMicrocode = lib.mkDefault hardware.enableRedistributableFirmware;
           virtualisation.hypervGuest.enable = true;
           programs.vim.defaultEditor = true;
         };
