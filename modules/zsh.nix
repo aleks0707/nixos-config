@@ -14,7 +14,7 @@ in
         nrs = "sudo nixos-rebuild switch --flake '.#";
       };
       promptInit = ''
-        prompt off && PS1='[%n@%m:%~] %# '
+        autoload -U promptinit && promptinit && prompt suse && setopt prompt_sp && PS1='[%n@%m:%~] %# '
       '';
     };
 
