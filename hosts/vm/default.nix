@@ -12,11 +12,11 @@
   systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  filesystems."/" = {
+  fileSystems."/" = {
     label = "nixos";
     fsType = "ext4";
   };
-  filesystems."/boot" = {
+  fileSystems."/boot" = {
     label = "boot";
     fsType = "vfat";
   };
