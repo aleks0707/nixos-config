@@ -21,7 +21,7 @@
     fsType = "vfat";
   };
   swapDevices = [
-    { label = "swap" }
+    { label = "swap"; }
   ];
 
   user.name = "dark";
