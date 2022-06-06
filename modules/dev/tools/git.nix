@@ -16,19 +16,20 @@ in
     };
 
     config = mkIf cfg.enable {
-      home-manager.users.${config.user.name} = {
-        programs.git = {
-          enable = true;
-          userName = cfg.name;
-          userEmail = cfg.email;
-          signing = {
-            signByDefault = true;
+      programs.git = {
+        enable = true;
+        userName = cfg.name;
+        userEmail = cfg.email;
+        signing = {
+          signByDefault = true;
             key = null; # figure it out automatically
-          };
-          lfs.enable = true;
         };
+<<<<<<< HEAD
 
         home.packages = [ pkgs.git ];
+=======
+        lfs.enable = true;
+>>>>>>> fe6ad2ab2e4f6a5755014d4c3cb1ef8d84810447
       };
     };
   };
