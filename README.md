@@ -2,6 +2,7 @@
 My NixOS configuration with [flakes](https://nixos.wiki/wiki/Flakes),
 [home-manager](https://github.com/nix-community/home-manager) and
 [flake-utils-plus](https://github.com/gytis-ivaskevicius/flake-utils-plus).
+At the moment, I have a VM on Windows to which I connect through SSH with VS Code.
 
 ## Installation
 ```bash
