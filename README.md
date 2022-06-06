@@ -1,12 +1,14 @@
 # nixos-config
-My NixOS configuration.
+My NixOS configuration with [flakes](https://nixos.wiki/wiki/Flakes),
+[home-manager](https://github.com/nix-community/home-manager) and
+[flake-utils-plus](https://github.com/gytis-ivaskevicius/flake-utils-plus).
 
 ## Installation
 ```bash
 nixos-install --flake '.#<host>'
 ```
 
-## Updating flake inputs
+## Updating flake inputs)
 ```bash
 nix flake update
 ```
