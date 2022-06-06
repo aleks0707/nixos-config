@@ -3,6 +3,6 @@ My NixOS configuration.
 
 ## Installation
 
-```nix
+```bash
 nixos-install --flake '.#<host>'
 ```
