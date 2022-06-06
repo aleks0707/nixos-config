@@ -27,6 +27,16 @@ in
             key = null; # figure it out automatically
           };
           lfs.enable = true;
+          config = {
+            url = {
+              "https://github.com/" = {
+                insteadOf = [
+                  "gh:"
+                  "github:"
+                ];
+              };
+            };
+          };
         };
       };
     };
