@@ -30,7 +30,7 @@
     extraGroups = [
       "wheel"
     ];
-    # passwordFile = "password-secret.txt";
+    passwordFile = "../../secrets/password";
     uid = 1000;
   };
 
