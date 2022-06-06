@@ -74,7 +74,7 @@
     };
   };
 
-  home-manager.user.${config.user.name}.home.file = {
+  home-manager.users.${config.user.name}.home.file = {
     ".zshrc".target = ".zshrc";
   }; 
 }
