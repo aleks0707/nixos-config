@@ -27,6 +27,8 @@ in
           };
           lfs.enable = true;
         };
+
+        home.packages = [ pkgs.git ];
       };
     };
   };
