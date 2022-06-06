@@ -27,7 +27,7 @@ in
             key = null; # figure it out automatically
           };
           lfs.enable = true;
-          extraConfig = { url = { https://github.com/ = { insteadOf = [ "gh:" "github:" ]; }; }; };
+          extraConfig = { url = { "https://github.com/" = { insteadOf = [ "gh:" "github:" ]; }; }; };
         };
       };
     };
