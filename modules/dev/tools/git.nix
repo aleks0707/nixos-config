@@ -14,10 +14,11 @@ in
       type = types.str;
       default = "darkn4754+mail@gmail.com";
     };
+  };
 
     config = mkIf cfg.enable {
       home-manager.users.${config.user.name} = {
-        (programs.git) = {
+        programs.git = {
           enable = true;
           userName = cfg.name;
           userEmail = cfg.email;
@@ -29,5 +30,4 @@ in
         };
       };
     };
-  };
 }
