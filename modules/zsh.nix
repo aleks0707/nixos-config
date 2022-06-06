@@ -11,8 +11,11 @@ in
       enable = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
-        nrs = "sudo nixos-rebuild switch";
+        nrs = "sudo nixos-rebuild switch --flake '.#";
       };
+      promptInit = ''
+        prompt off && PS1='[%n@%m:%~] %# '
+      '';
     };
 
     users.defaultUserShell = pkgs.zsh;
