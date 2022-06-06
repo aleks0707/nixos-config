@@ -19,13 +19,13 @@ in
       home-manager.users.${config.user.name} = {
         programs.git = {
           enable = true;
-          userName = cfg.name;
+          /* userName = cfg.name;
           userEmail = cfg.email;
           signing = {
             signByDefault = true;
             key = null; # figure it out automatically
           };
-          lfs.enable = true;
+          lfs.enable = true; */
         };
       };
     };
