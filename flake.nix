@@ -8,10 +8,10 @@
     home-manager.url = "github:nix-community/home-manager";
   };
 
-  outputs = inputs@{ self, utils, nixpkgs, unstable, home-manager, ... }: {
-    let
-      inherit (utils.lib) mkFlake exportModules;
-    in
+  outputs = inputs@{ self, utils, nixpkgs, unstable, home-manager, ... }:
+  let
+    inherit (utils.lib) mkFlake exportModules;
+  in
     mkFlake {
       inherit self inputs;
 
@@ -53,5 +53,4 @@
         };
       };
     };
-  };
 }
