@@ -8,7 +8,7 @@ My NixOS configuration with [flakes](https://nixos.wiki/wiki/Flakes),
 nixos-install --flake '.#<host>'
 ```
 
-## Updating flake inputs)
+## Updating flake inputs
 ```bash
 nix flake update
 ```
