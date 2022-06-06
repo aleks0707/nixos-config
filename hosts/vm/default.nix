@@ -72,6 +72,9 @@
         gpg.pinentryFlavor = "curses";
         direnv.enable = true;
       };
+      editors = {
+        vs-code-ssh.enable = true;
+      };
     };
   };
 
