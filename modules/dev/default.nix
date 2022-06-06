@@ -1,6 +1,6 @@
 {
   imports = [
-    #./editors
+    ./services
     ./tools
   ];
 }

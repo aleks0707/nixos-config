@@ -72,8 +72,8 @@
         gpg.pinentryFlavor = "curses";
         direnv.enable = true;
       };
-      editors = {
-        vs-code-ssh.enable = true;
+      services = {
+        nixos-vscode-ssh-fix.enable = true;
       };
     };
   };
