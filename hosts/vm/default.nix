@@ -78,6 +78,4 @@
   home-manager.users.${config.user.name}.home.file = {
     ".zshrc".source = ../../configs/.zshrc;
   };
-
-  services.nixos-vscode-server.enable = true;
 }

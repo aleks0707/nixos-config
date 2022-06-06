@@ -6,7 +6,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
-    nixos-vscode-server.url = "github:mudrii/nixos-vscode-ssh-fix/main";
   };
 
   outputs = inputs@{ self, utils, nixpkgs, unstable, home-manager, nixos-vscode-server, ... }:
@@ -30,8 +29,6 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
           }
-
-          nixos-vscode-server.nixosModules.system
         ];
       };
 
