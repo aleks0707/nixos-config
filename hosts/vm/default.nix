@@ -61,8 +61,8 @@
     dev = {
       tools = {
         git.enable = true;
-        git.pinentryFlavor = "curses";
         gpg.enable = true;
+        gpg.pinentryFlavor = "curses";
         direnv.enable = true;
       };
     };
