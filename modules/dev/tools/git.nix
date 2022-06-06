@@ -31,7 +31,9 @@ in
             key = cfg.signingKey;
           };
           lfs.enable = true;
-          extraConfig = { url = { "git@github.com:" = { insteadOf = [ "gh:" "github:" ]; }; }; };
+          extraConfig.url = {
+            "git@github.com:" = { insteadOf = [ "gh-ssh:" "github-ssh:" ]; };
+            "https://github.com/" = { insteadOf = [ "gh:" "github:" ]; }; };
         };
       };
     };
