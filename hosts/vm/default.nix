@@ -51,6 +51,7 @@
   environment = {
     defaultPackages = with pkgs; [
       vim
+      rsync
       strace
     ];
     variables = {
