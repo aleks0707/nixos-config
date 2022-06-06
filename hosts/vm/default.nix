@@ -1,12 +1,15 @@
 { pkgs, config, lib, ... }:
 {
-  boot.initrd.availableKernelModules = [ "sd_mod" "sr_mod" ];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = [];
-  boot.extraModulePackages = [];
-
-  systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    initrd.availableKernelModules = [ "sd_mod" "sr_mod" ];
+    initrd.kernelModules = [];
+    kernelModules = [];
+    extraModulePackages = [];
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+  };
 
   fileSystems."/" = {
     label = "nixos";
