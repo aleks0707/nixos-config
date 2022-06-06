@@ -2,7 +2,7 @@
   description = "dark's NixOS, Home-Manager and Flake-Utils-Plus flake";
 
   inputs = {
-    utils = "github:gytis-ivaskevicius/flake-utils-plus";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
