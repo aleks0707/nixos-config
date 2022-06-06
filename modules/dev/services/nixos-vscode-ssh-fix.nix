@@ -1,14 +1,14 @@
 {config, pkgs, lib, ...}:
 
 let
-  cfg = config.services.nixos-vscode-ssh-fix;
+  cfg = config.modules.dev.services.nixos-vscode-ssh-fix;
   name = "nixos-vscode-ssh-fix";
 in
 
 with lib;
 
 {
-  options.services.nixos-vscode-ssh-fix = with types; {
+  options.modules.dev.services.nixos-vscode-ssh-fix = with types; {
     enable = mkEnableOption "auto-fix service for vscode-server in NixOS";
     nodePackage = mkOption {
       type = package;
@@ -22,7 +22,7 @@ with lib;
 
  config =
    let
-     cfg = config.services.nixos-vscode-ssh-fix;
+     cfg = config.modules.dev.services.nixos-vscode-ssh-fix;
      nodePath = "${cfg.nodePackage}/bin/node";
      findPath = "${cfg.findPackage}/bin/find";
      mkStartScript = name: pkgs.writeShellScript "${name}.sh" ''
