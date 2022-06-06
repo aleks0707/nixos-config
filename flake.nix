@@ -30,10 +30,8 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
           }
-          
-          {
-            imports = [ inputs.auto-fix-vscode-server.nixosModules.system ];
-          }
+
+          nixos-vscode-server.nixosModules.system
         ];
       };
 
