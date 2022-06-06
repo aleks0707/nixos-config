@@ -14,6 +14,10 @@ in
       type = types.str;
       default = "darkn4754+mail@gmail.com";
     };
+    signingKey = mkOption {
+      type = types.str;
+      default = "3CD678F959EA3C01";
+    };
   };
 
     config = mkIf cfg.enable {
@@ -24,7 +28,7 @@ in
           userEmail = cfg.email;
           signing = {
             signByDefault = true;
-            key = null; # figure it out automatically
+            key = cfg.signingKey;
           };
           lfs.enable = true;
           extraConfig = { url = { "https://github.com/" = { insteadOf = [ "gh:" "github:" ]; }; }; };
