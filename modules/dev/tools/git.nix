@@ -8,7 +8,7 @@ in
     enable = mkEnableOption "Git configuration";
     name = mkOption {
       type = types.str;
-      default = "darkn07";
+      default = "darkness";
     };
     email = mkOption {
       type = types.str;
