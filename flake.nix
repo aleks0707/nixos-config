@@ -1,66 +1,56 @@
 {
-  description = "A NixOS configuration that reeks of darkness";
+  description = "dark's NixOS, Home-Manager and Flake-Utils-Plus flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    utils = "github:gytis-ivaskevicius/flake-utils-plus";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager";
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
-  let
-    inherit (nixpkgs) lib;
+  outputs = inputs@{ self, utils, nixpkgs, unstable, home-manager, ... }: {
+    let
+      inherit (utils.lib) mkFlake exportModules;
+    in
+    mkFlake {
+      inherit self inputs;
 
-    system = "x86_64-linux"; # default
+      supportedSystems = [ "x86_64-linux" ];
 
-    util = import ./lib {
-      inherit system pkgs home-manager lib;
-      overlays = (pkgs.overlays);
-    };
+      channelsConfig.allowUnfree = true;
 
-    inherit (util) user;
-    inherit (util) host;
-
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-      overlays = [];
-    };
-  in {
-    homeManagerConfigurations = {
-      dark = user.mkHMUser {
-        userConfig = {
-          git.enable = true;
-        };
-        username = "dark";
-      };
-    };
-
-    nixosConfigurations = {
-      vm = host.mkHost {
+      hostDefaults = {
         system = "x86_64-linux";
-        name = "vm";
-        NICs = [ "eth0" ];
-        kernelPackage = pkgs.linuxPackages;
-        initrdMods = [ "sd_mod" "sr_mod" ];
-        kernelMods = [];
-        kernelParams = [];
-        systemConfig = {
-          efi.enable = true;
-          hardware.cpu.intel.updateMicrocode = true;
-          virtualisation.hypervGuest.enable = true;
-          programs.vim.defaultEditor = true;
+        modules = [
+          ./modules
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
+        ];
+      };
+
+      nixosModules = exportModules [
+        ./hosts/vm
+      ];
+
+      hosts = {
+        vm = {
+          channelName = "unstable";
+          modules = with self.nixosModules; [ vm ];
         };
-        users = [{
-          name = "dark";
-          groups = [ "wheel" "networkmanager" "video" ];
-          uid = 1000;
-          shell = pkgs.bash;
-        }];
-        cpuCores = 2;
+      };
+
+      outputsBuilder = channels: with channels.nixpkgs; {
+        devShell = mkShell {
+          name = "nixos-config";
+          buildInputs = [
+            nixpkgs-fmt
+            git-crypt
+          ];
+        };
       };
     };
   };
