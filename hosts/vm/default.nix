@@ -73,4 +73,8 @@
       };
     };
   };
+
+  home-manager.user.${config.user.name}.home.file = {
+    ".zshrc".target = ".zshrc";
+  }; 
 }
