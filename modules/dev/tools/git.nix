@@ -17,7 +17,7 @@ in
 
     config = mkIf cfg.enable {
       home-manager.users.${config.user.name} = {
-        programs.git = {
+        (programs.git) = {
           enable = true;
           userName = cfg.name;
           userEmail = cfg.email;
@@ -27,8 +27,6 @@ in
           };
           lfs.enable = true;
         };
-
-        home.packages = [ pkgs.git ];
       };
     };
   };
