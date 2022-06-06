@@ -59,7 +59,10 @@
   };
 
   modules = {
-    nix-optimize.enable = true;
+    nix-optimize = {
+      enable = true;
+      cores = 2;
+    };
     zsh.enable = true;
     dev = {
       tools = {
