@@ -17,6 +17,7 @@ in
 
       services.gpg-agent = {
         enable = true;
+        enableSSHSupport = true;
         pinentryFlavor = cfg.pinentryFlavor;
       };
     };
