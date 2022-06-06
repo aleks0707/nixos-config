@@ -10,7 +10,7 @@
   boot.extraModulePackages = [];
 
   systemd-boot.enable = true;
-  efi.canTouchEfiVariables = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   filesystems."/" = {
     label = "nixos";
