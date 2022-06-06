@@ -60,6 +60,7 @@
   };
 
   modules = {
+    nix-optimize.enable = true;
     zsh.enable = true;
     dev = {
       tools = {
