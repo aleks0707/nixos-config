@@ -19,7 +19,7 @@ sudo nixos-rebuild switch --flake '.#'
 ```
 
 ## Secrets
-In order to access the secrets, setup git-crypt
+In order to access the secrets, setup git-crypt with the keyfile
 ```bash
 git-crypt unlock /path/to/keyfile
 ```
