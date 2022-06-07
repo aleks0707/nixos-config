@@ -20,6 +20,10 @@ nix flake update
 ```bash
 sudo nixos-rebuild switch --flake '.#'
 ```
+or for short
+```bash
+rebuild
+```
 
 ## Secrets
 Make sure to set safe permissions for the secrets
