@@ -31,7 +31,7 @@
     extraGroups = [
       "wheel"
     ];
-    passwordFile = "../../secrets/password_dark";
+    passwordFile = "secrets/password_dark";
     uid = 1000;
   };
 
