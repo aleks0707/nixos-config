@@ -31,7 +31,7 @@ Make sure to set safe permissions for the secrets
 $ chmod 0600 secrets/*
 ```
 
-In order to access the secrets, setup git-crypt with the keyfile
+In order to access the secrets, setup `git-crypt` with the keyfile
 ```bash
 $ git-crypt unlock /path/to/keyfile
 ```
