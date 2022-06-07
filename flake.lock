@@ -33,6 +33,24 @@
         "type": "github"
       }
     },
+    "nixos-vscode-server": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1654599064,
+        "narHash": "sha256-Ft0l3SpB/k7EGbMQlyh9RKYQrI7JUnBCD2If+2oncRM=",
+        "owner": "darkn07",
+        "repo": "nixos-vscode-server",
+        "rev": "da9a326137b51eb1fd15dca1ea0868168c2140e8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "darkn07",
+        "repo": "nixos-vscode-server",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1654398695,
@@ -48,6 +66,22 @@
       }
     },
     "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1621073999,
+        "narHash": "sha256-Cp99YreSFedcWovxNmO8g8qFYltQQJPRLfuot6Z7iGE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "83d907fd760d9ee4f49b4b7e4b1c6682f137b573",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1654360807,
         "narHash": "sha256-wYG86PUkPZ1P/oHsCpepTkb/U26poaEPPp1XFjRsgdA=",
@@ -66,7 +100,8 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_2",
+        "nixos-vscode-server": "nixos-vscode-server",
+        "nixpkgs": "nixpkgs_3",
         "unstable": "unstable",
         "utils": "utils"
       }
