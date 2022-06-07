@@ -9,7 +9,7 @@
     nixos-vscode-server.url = "github:darkn07/nixos-vscode-server";
   };
 
-  outputs = inputs@{ self, utils, nixpkgs, unstable, home-manager, ... }:
+  outputs = inputs@{ self, utils, nixpkgs, unstable, home-manager, nixos-vscode-server, ... }:
   let
     inherit (utils.lib) mkFlake exportModules;
   in
