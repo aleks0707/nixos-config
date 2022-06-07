@@ -24,6 +24,7 @@
   ];
 
   user.name = "dark";
+  users.mutableUsers = false;
   users.users.dark = {
     isNormalUser = true;
     useDefaultShell = true;
