@@ -12,6 +12,7 @@ in
       syntaxHighlighting.enable = true;
       shellAliases = {
         rebuild = "sudo nixos-rebuild switch --flake '.#'";
+        gpg-connect-agent = "gpg-connect-agent updatestartuptty /bye 1>/dev/null";
       };
       promptInit = ''
         autoload -U promptinit && promptinit && prompt suse && setopt prompt_sp && PS1='[%n@%m:%~] %# '
