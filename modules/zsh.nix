@@ -11,7 +11,7 @@ in
       enable = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
-        nrs = "sudo nixos-rebuild switch --flake '.#";
+        rebuild = "sudo nixos-rebuild switch --flake '.#'";
       };
       promptInit = ''
         autoload -U promptinit && promptinit && prompt suse && setopt prompt_sp && PS1='[%n@%m:%~] %# '
