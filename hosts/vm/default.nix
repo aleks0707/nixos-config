@@ -76,7 +76,7 @@
   };
 
   services.openssh.enable = true;
-  services.auto-fix-vscode-server.enable = true;
+  services.vscode-server.enable = true;
 
   home-manager.users.${config.user.name}.home.file = {
     ".zshrc".source = ../../configs/.zshrc;
