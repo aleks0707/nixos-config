@@ -75,6 +75,8 @@
     };
   };
 
+  services.openssh.enable = true;
+
   home-manager.users.${config.user.name}.home.file = {
     ".zshrc".source = ../../configs/.zshrc;
   };
