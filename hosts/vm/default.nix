@@ -24,14 +24,12 @@
   ];
 
   user.name = "dark";
-  users.mutableUsers = false;
   users.users.dark = {
     isNormalUser = true;
     useDefaultShell = true;
     extraGroups = [
       "wheel"
     ];
-    passwordFile = "secrets/password_dark";
     uid = 1000;
   };
 
