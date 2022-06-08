@@ -40,9 +40,8 @@ In order to access the secrets, setup `git-crypt` with the keyfile
 $ git-crypt unlock /path/to/keyfile
 ```
 
-Import the public and private GPG keys
+Import the private GPG key
 ```bash
-$ gpg --import secrets/public_gpg
 $ gpg --import secrets/private_gpg
 ```
 
