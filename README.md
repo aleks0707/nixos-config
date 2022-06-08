@@ -10,6 +10,10 @@ VS Code and PuTTY.
 ```bash
 $ nixos-install --flake '.#<host>'
 ```
+Set the password for any users
+```bash
+$ passwd dark
+```
 
 ## Updating flake inputs
 ```bash
