@@ -3,7 +3,7 @@ My NixOS configuration with [flakes](https://nixos.wiki/wiki/Flakes),
 [home-manager](https://github.com/nix-community/home-manager) and
 [flake-utils-plus](https://github.com/gytis-ivaskevicius/flake-utils-plus).
 
-At the moment, I operate a Hyper-V VM on Windows. I access it through SSH on
+At the moment, I operate a virtual machine on Windows. I access it through SSH on
 VS Code and PuTTY.
 
 ## Installation
