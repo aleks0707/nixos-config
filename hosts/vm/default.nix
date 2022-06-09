@@ -40,11 +40,6 @@
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableAllFirmware = true;
 
-  virtualisation.hypervGuest = {
-    enable = true;
-    videoMode = "1024x768";
-  };
-
   system.stateVersion = "22.05"; # Don't change. May break stateful data compability
 
   environment = {
