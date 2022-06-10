@@ -97,6 +97,7 @@
   };
 
   services.openssh.enable = true;
+  users.users.dark.openssh.authorizedKeys.keyFiles = [ ../../secrets/ssh_host_key.pub ];
   services.vscode-server.enable = true;
 
   home-manager.users.dark.home.file = {
