@@ -45,13 +45,3 @@ Add the private SSH key to `ssh-agent`
 ```bash
 $ ssh-add secrets/ssh_key
 ```
-
-Before you run any command that depends on `gpg-agent`/`ssh-agent` (like `git pull`) on a new tty,
-update the startup tty otherwise `gpg-connect-agent` will throw out an error
-```bash
-$ gpg-connect-agent
-```
-which is aliased to
-```bash
-$ gpg-connect-agent updatestartuptty /bye > /dev/null
-```
