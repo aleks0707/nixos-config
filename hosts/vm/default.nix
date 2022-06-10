@@ -24,6 +24,7 @@
   fileSystems."/nix" = {
     label = "nixos";
     fsType = "btrfs";
+    options = [ "compress=lzo" ];
   };
   services.btrfs.autoScrub.enable = true;
   fileSystems."/boot" = {
