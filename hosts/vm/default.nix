@@ -12,9 +12,20 @@
   };
 
   fileSystems."/" = {
-    label = "nixos";
-    fsType = "ext4";
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "size=2G" "mode=755" ];
   };
+  fileSystems."/home/dark" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "size=2G" "mode=777" ];
+  };
+  fileSystems."/nix" = {
+    label = "nixos";
+    fsType = "btrfs";
+  };
+  services.btrfs.autoScrub.enable = true;
   fileSystems."/boot" = {
     label = "boot";
     fsType = "vfat";
@@ -23,13 +34,14 @@
     { label = "swap"; }
   ];
 
+  users.mutableUsers = false;
+  users.users.root.initialPassword = "root";
   user.name = "dark";
   users.users.dark = {
     isNormalUser = true;
+    initialPassword = "dark";
     useDefaultShell = true;
-    extraGroups = [
-      "wheel"
-    ];
+    extraGroups = [ "wheel" ];
     uid = 1000;
   };
 
@@ -50,6 +62,21 @@
     ];
     variables = {
       EDITOR = "vim";
+    };
+    persistence."/nix/persist/system" = {
+      directories = [
+        "/etc/nixos"
+        # "/etc/NetworkManager" 
+        "/var/log"
+        "/var/lib"
+      ];
+      files = [
+        "/etc/machine-id"
+        "/etc/ssh/ssh_host_rsa_key"
+        "/etc/ssh/ssh_host_rsa_key.pub"
+        "/etc/ssh/ssh_host_ed25519_key"
+        "/etc/ssh/ssh_host_ed25519_key.pub"
+      ];
     };
   };
 

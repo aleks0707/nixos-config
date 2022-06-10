@@ -8,11 +8,7 @@ VS Code and PuTTY.
 
 ## Installation
 ```bash
-$ nixos-install --flake '.#<host>'
-```
-Set the password for any users
-```bash
-$ passwd dark
+$ nixos-install --flake '.#<host>' --no-root-passwd
 ```
 
 ## Updating flake inputs
@@ -42,20 +38,20 @@ $ git-crypt unlock /path/to/keyfile
 
 Import the private GPG key
 ```bash
-$ gpg --import secrets/private_gpg
+$ gpg --import secrets/gpg_key
 ```
 
 Add the private SSH key to `ssh-agent`
 ```bash
-$ ssh-add secrets/private_ssh
+$ ssh-add secrets/ssh_key
 ```
 
-Before you run any command that depends on `gpg-agent` (like `git pull`) on a new tty,
+Before you run any command that depends on `gpg-agent`/`ssh-agent` (like `git pull`) on a new tty,
 update the startup tty otherwise `gpg-connect-agent` will throw out an error
 ```bash
 $ gpg-connect-agent
 ```
 which is aliased to
 ```bash
-$ gpg-connect-agent updatestartuptty /bye 1>/dev/null
+$ gpg-connect-agent updatestartuptty /bye > /dev/null
 ```

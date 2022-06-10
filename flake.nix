@@ -6,10 +6,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
+    impermanence.url = "github:nix-community/impermanence";
     nixos-vscode-server.url = "github:darkn07/nixos-vscode-server";
   };
 
-  outputs = inputs@{ self, utils, nixpkgs, unstable, home-manager, nixos-vscode-server, ... }:
+  outputs = inputs@{self, utils, nixpkgs, unstable, home-manager, impermanence, nixos-vscode-server, ... }:
   let
     inherit (utils.lib) mkFlake exportModules;
   in
@@ -30,6 +31,8 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
           }
+          impermanence.nixosModules.impermanence
+          impermanence.nixosModules.home-manager.impermanence
           nixos-vscode-server.nixosModules.system
         ];
       };
@@ -52,6 +55,7 @@
             nixpkgs-fmt
             git-crypt
           ];
+          shellHook = "gpg-connect-agent updatestartuptty /bye > /dev/null";
         };
       };
     };
