@@ -36,7 +36,7 @@
 
   users.mutableUsers = false;
   users.users.root.initialPassword = "root";
-  user.name = "dark";
+  user.name = "dark"; # used to specify the user in modules
   users.users.dark = {
     isNormalUser = true;
     initialPassword = "dark";
@@ -99,7 +99,19 @@
   services.openssh.enable = true;
   services.vscode-server.enable = true;
 
-  home-manager.users.${config.user.name}.home.file = {
+  home-manager.users.dark.home.file = {
     ".zshrc".source = ../../configs/.zshrc;
+  };
+
+  programs.fuse.userAllowOther = true;
+  home-manager.users.dark.home.persistence."/nix/persist/home/dark" = {
+    directories = [
+      "Desktop"
+      ".gnupg"
+      ".ssh"
+      ".local/share/keyrings"
+      ".local/share/direnv"
+    ];
+    allowOther = true;
   };
 }
