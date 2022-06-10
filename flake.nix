@@ -55,7 +55,9 @@
             nixpkgs-fmt
             git-crypt
           ];
-          shellHook = "gpg-connect-agent updatestartuptty /bye > /dev/null";
+          shellHook = ''
+            gpg-connect-agent updatestartuptty /bye > /dev/null
+          '';
         };
       };
     };
