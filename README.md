@@ -26,7 +26,7 @@ $ rebuild
 ```
 
 ## Secrets
-Make sure to set safe permissions for the secrets
+Make sure to have set safe permissions for the secrets
 ```bash
 $ chmod 0600 secrets/*
 ```
@@ -38,10 +38,10 @@ $ git-crypt unlock /path/to/keyfile
 
 Import the private GPG key
 ```bash
-$ gpg --import secrets/gpg_key
+$ gpg --import secrets/gpg_git_key
 ```
 
-Add the private SSH key to `ssh-agent`
+Add the private SSH keys to `ssh-agent`
 ```bash
-$ ssh-add secrets/ssh_key
+$ ssh-add secrets/ssh_git_key
 ```
