@@ -8,11 +8,11 @@ in
     enable = mkEnableOption "Git configuration";
     name = mkOption {
       type = types.str;
-      default = "darkn07";
+      default = "Aleksandrs Voitesonoks";
     };
     email = mkOption {
       type = types.str;
-      default = "darkn4754+mail@gmail.com";
+      default = "aleksandrsvoitesonoks@gmail.com";
     };
     signingKey = mkOption {
       type = types.str;
