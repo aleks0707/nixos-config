@@ -3,10 +3,13 @@ My NixOS configuration with [flakes](https://nixos.wiki/wiki/Flakes),
 [home-manager](https://github.com/nix-community/home-manager) and
 [flake-utils-plus](https://github.com/gytis-ivaskevicius/flake-utils-plus).
 
-At the moment, I operate a QEMU virtual machine on Windows. I access it through SSH on
-VS Code and PuTTY.
-
 ## Installation
+For the VM host, setup QEMU
+```bash
+$ qemu-img create -f qcow2 -o preallocation=metadata nixos.img 30G
+$ qemu-system-x86_64 -m 1G,slots=3,maxmem=4G -smp 2 -hda nixos.img -cdrom nixos-minimal.iso -rtc base=localtime -accel hax
+```
+
 ```bash
 $ nixos-install --flake '.#<host>' --no-root-passwd
 ```
