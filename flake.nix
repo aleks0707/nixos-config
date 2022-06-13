@@ -3,14 +3,15 @@
 
   inputs = {
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-stable.url = "github:nixos/nixpkgs/nixos-22.05";
     home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     impermanence.url = "github:nix-community/impermanence";
     nixos-vscode-server.url = "github:darkn07/nixos-vscode-server";
   };
 
-  outputs = inputs@{self, utils, nixpkgs, unstable, home-manager, impermanence, nixos-vscode-server, ... }:
+  outputs = inputs@{self, utils, nixpkgs, nixos-stable, home-manager, impermanence, nixos-vscode-server, ... }:
   let
     inherit (utils.lib) mkFlake exportModules;
   in
@@ -43,7 +44,7 @@
 
       hosts = {
         vm = {
-          channelName = "unstable";
+          channelName = "nixpkgs";
           modules = with self.nixosModules; [ vm ];
         };
       };
