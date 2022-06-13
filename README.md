@@ -11,7 +11,7 @@ VS Code and PuTTY.
 $ nixos-install --flake '.#<host>' --no-root-passwd
 ```
 
-## Updating flake inputs
+## Updating flake.lock
 ```bash
 $ nix flake update
 ```
