@@ -14,7 +14,7 @@ $ qemu-system-x86_64 -m 1G,slots=3,maxmem=4G -smp 2 -hda nixos.img -cdrom nixos-
 $ nixos-install --flake '.#<host>' --no-root-passwd
 ```
 
-## Updating flake inputs
+## Updating flake.lock
 ```bash
 $ nix flake update
 ```
