@@ -1,7 +1,11 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, modulesPath, ... }:
 {
+  imports = [
+    (modulesPath + "/profiles/qemu-guest.nix")
+  ];
+
   boot = {
-    initrd.availableKernelModules = [ "sd_mod" "sr_mod" ];
+    initrd.availableKernelModules = [ "ata_piix" "floppy" "sd_mod" "sr_mod" ];
     initrd.kernelModules = [];
     kernelModules = [];
     extraModulePackages = [];
@@ -27,10 +31,6 @@
     options = [ "compress=lzo" ];
   };
   services.btrfs.autoScrub.enable = true;
-  fileSystems."/boot" = {
-    label = "boot";
-    fsType = "vfat";
-  };
   swapDevices = [
     { label = "swap"; }
   ];
