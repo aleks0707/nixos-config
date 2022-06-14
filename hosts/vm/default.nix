@@ -9,10 +9,8 @@
     initrd.kernelModules = [];
     kernelModules = [];
     extraModulePackages = [];
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
+    loader.grub.enable = true;
+    loader.grub.version = 2;
   };
 
   fileSystems."/" = {
