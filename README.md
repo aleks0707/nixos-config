@@ -11,6 +11,7 @@ $ qemu-system-x86_64 -hda nixos.img -cdrom nixos-minimal.iso -m 1G,slots=3,maxme
 ```
 
 ```bash
+$ nix-shell -p git
 $ nixos-install --flake '.#<host>' --no-root-passwd
 ```
 
