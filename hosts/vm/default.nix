@@ -47,6 +47,10 @@
   time.timeZone = "Europe/Tallinn";
 
   networking.useDHCP = true;
+  networking.resolvconf.extraOptions = [
+    "nameserver 1.1.1.1"
+    "nameserver 1.0.0.1"
+  ];
 
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableAllFirmware = true;
