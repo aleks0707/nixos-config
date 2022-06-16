@@ -20,10 +20,10 @@ $ mkswap -L swap /dev/sda2
 $ mount -t tmpfs none /mnt
 $ mkdir -p /mnt/{nix,etc/nixos,var/{log,lib}}
 $ mount /dev/disk/by-label/nixos /mnt/nix
-$ mkdir -p /mnt/nix/persist/{etc/nixos,var/{log,lib}}
-$ mount -o bind /mnt/nix/persist/etc/nixos /mnt/etc/nixos
-$ mount -o bind /mnt/nix/persist/var/log /mnt/var/log
-$ mount -o bind /mnt/nix/persist/var/lib /mnt/var/lib
+$ mkdir -p /mnt/nix/persist/system/{etc/nixos,var/{log,lib}}
+$ mount -o bind /mnt/nix/persist/system/etc/nixos /mnt/etc/nixos
+$ mount -o bind /mnt/nix/persist/system/var/log /mnt/var/log
+$ mount -o bind /mnt/nix/persist/system/var/lib /mnt/var/lib
 $ cd /mnt/etc/nixos
 $ nix-shell -p git
 $ git clone https://github.com/dark0x64/nixos-config .
