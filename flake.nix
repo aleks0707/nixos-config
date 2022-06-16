@@ -31,9 +31,9 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.users.dark.imports = [ "${impermanence}/home-manager.nix" ];
           }
           impermanence.nixosModules.impermanence
-          impermanence.nixosModules.home-manager.impermanence
           nixos-vscode-server.nixosModules.system
         ];
       };
