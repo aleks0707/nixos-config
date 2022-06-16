@@ -3,8 +3,8 @@ My NixOS configuration with [flakes](https://nixos.wiki/wiki/Flakes),
 [home-manager](https://github.com/nix-community/home-manager) and
 [flake-utils-plus](https://github.com/gytis-ivaskevicius/flake-utils-plus).
 
-## Installation
-For the VM host, setup QEMU
+## Setting up QEMU
+For the VM host
 ```bash
 $ qemu-img create -f qcow2 -o preallocation=metadata nixos.img 30G
 $ qemu-system-x86_64 -hda nixos.img -cdrom nixos-minimal.iso -m 4G -smp 2 \
@@ -12,6 +12,7 @@ $ qemu-system-x86_64 -hda nixos.img -cdrom nixos-minimal.iso -m 4G -smp 2 \
   -rtc base=localtime -accel hax -boot dc
 ```
 
+## Installation
 ```bash
 $ mkfs.btrfs /dev/disk/by-label/nixos  # make sure to format as btrfs not ext4!!
 $ nix-shell -p git
