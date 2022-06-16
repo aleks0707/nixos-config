@@ -9,8 +9,11 @@
     initrd.kernelModules = [];
     kernelModules = [];
     extraModulePackages = [];
-    loader.grub.enable = true;
-    loader.grub.version = 2;
+    loader.grub = {
+      enable = true;
+      version = 2;
+      device = "/dev/sda";
+    };
   };
 
   fileSystems."/" = {
@@ -26,7 +29,7 @@
   fileSystems."/nix" = {
     label = "nixos";
     fsType = "btrfs";
-    options = [ "compress=lzo" ];
+    options = [ "compress=lzo" "noatime" ];
   };
   services.btrfs.autoScrub.enable = true;
   swapDevices = [
