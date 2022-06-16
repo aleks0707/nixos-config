@@ -106,19 +106,20 @@
   users.users.dark.openssh.authorizedKeys.keyFiles = [ ../../secrets/ssh_host_key.pub ];
   services.vscode-server.enable = true;
 
-  home-manager.users.dark.home.file = {
-    ".zshrc".source = ../../configs/.zshrc;
-  };
-
   programs.fuse.userAllowOther = true;
-  home-manager.users.dark.home.persistence."/nix/persist/home/dark" = {
-    directories = [
-      "Desktop"
-      ".gnupg"
-      ".ssh"
-      ".local/share/keyrings"
-      ".local/share/direnv"
-    ];
-    allowOther = true;
+  home-manager.users.dark.home = {
+    file = {
+      ".zshrc".source = ../../configs/.zshrc;
+    };
+    persistence."/nix/persist/home/dark" = {
+      directories = [
+        "Desktop"
+        ".gnupg"
+        ".ssh"
+        ".local/share/keyrings"
+        ".local/share/direnv"
+      ];
+      allowOther = true;
+    };
   };
 }
