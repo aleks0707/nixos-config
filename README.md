@@ -7,10 +7,13 @@ My NixOS configuration with [flakes](https://nixos.wiki/wiki/Flakes),
 For the VM host, setup QEMU
 ```bash
 $ qemu-img create -f qcow2 -o preallocation=metadata nixos.img 30G
-$ qemu-system-x86_64 -hda nixos.img -cdrom nixos-minimal.iso -m 4G -smp 2 -netdev tap,id=netdev0,ifname=tap0 -device e1000,netdev=netdev0 -rtc base=localtime -accel hax -boot dc
+$ qemu-system-x86_64 -hda nixos.img -cdrom nixos-minimal.iso -m 4G -smp 2 \
+  -netdev tap,id=netdev0,ifname=tap0 -device e1000,netdev=netdev0 \
+  -rtc base=localtime -accel hax -boot dc
 ```
 
 ```bash
+$ mkfs.btrfs /dev/disk/by-label/nixos  # make sure to format as btrfs not ext4!!
 $ nix-shell -p git
 $ nixos-install --flake '.#<host>' --no-root-passwd
 ```
