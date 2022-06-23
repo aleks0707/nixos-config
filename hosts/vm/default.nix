@@ -29,7 +29,7 @@
   fileSystems."/nix" = {
     label = "nixos";
     fsType = "btrfs";
-    options = [ "compress=lzo" "noatime" ];
+    options = [ "compress=lzo" "noatime" "nodiratime" "discard" ];
   };
   services.btrfs.autoScrub.enable = true;
   swapDevices = [
